@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,19 +36,26 @@ namespace DAO
         {
             using(CafeManagementEntities db = new CafeManagementEntities())
             {
-                if (db.Accounts.FirstOrDefault(u => u.Username == username).Username == username) 
-                { 
-                    throw new Exception("The username is already used.");
-                }
-                var account = new Account
+                try
                 {
-                    Username = username,
-                    Password = password,
-                    DisplayName = DisplayName
-                };
-                db.Accounts.Add(account);
-                db.SaveChanges();
-                return true;
+                    if (db.Accounts.FirstOrDefault(u => u.Username == username).Username == username)
+                    {
+                        throw new Exception("The username is already used.");
+                    }
+                    var account = new Account
+                    {
+                        Username = username,
+                        Password = password,
+                        DisplayName = DisplayName
+                    };
+                    db.Accounts.Add(account);
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (DbUpdateException ex)
+                {
+                    throw new Exception("Something wrong with database");
+                }
             }
         }
         public bool removeAccount(string username)

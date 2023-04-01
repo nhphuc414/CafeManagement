@@ -19,5 +19,9 @@ namespace BUS
 
             }
         }
+        public dynamic loadProducts()
+        {
+            return DAO_Products.Instance.loadProducts();
+        }
     }
 }

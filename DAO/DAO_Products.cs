@@ -19,5 +19,20 @@ namespace DAO
 
             }
         }
+        public dynamic loadProducts()
+        {
+            using (CafeManagementEntities db = new CafeManagementEntities())
+            {
+                return db.Products.Select(p => new
+                {
+                    p.Id,
+                    p.Name,
+                    CategoryName=p.Category.Name,
+                    p.Price,
+
+                }).ToList();
+            }
+        }
+
     }
 }
