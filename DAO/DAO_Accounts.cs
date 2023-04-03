@@ -36,8 +36,6 @@ namespace DAO
         {
             using(CafeManagementEntities db = new CafeManagementEntities())
             {
-                try
-                {
                     if (db.Accounts.FirstOrDefault(u => u.Username == username).Username == username)
                     {
                         throw new Exception("The username is already used.");
@@ -51,11 +49,6 @@ namespace DAO
                     db.Accounts.Add(account);
                     db.SaveChanges();
                     return true;
-                }
-                catch (DbUpdateException ex)
-                {
-                    throw new Exception("Something wrong with database");
-                }
             }
         }
         public bool removeAccount(string username)

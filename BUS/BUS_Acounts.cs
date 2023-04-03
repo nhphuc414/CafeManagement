@@ -29,6 +29,8 @@ namespace BUS
             {
                 throw new Exception("You must enter username and password");
             }
+            username = username.Trim();
+            if (username.Contains(" ")) throw new Exception("Username contains spaces");
             return DAO_Accounts.Instance.addAccount(username,password,DisplayName);
         }
         public bool removeAccount(string username) { return DAO_Accounts.Instance.removeAccount(username); }

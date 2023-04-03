@@ -23,5 +23,43 @@ namespace BUS
         {
             return DAO_Products.Instance.loadProducts();
         }
+        public bool addProduct(string name, double price, int idCategory, int quantity = 0)
+        {
+
+            name = Utils.Utils.NormalizeString(name);
+            if (String.IsNullOrEmpty(name))
+            {
+                throw new Exception("Vui lòng nhập tên Product");
+            } 
+            if (price <= 0)
+            {
+                throw new Exception("Vui lòng nhập giá sản phẩm hợp lệ.");
+            }
+            name = char.ToUpper(name[0]) + name.Substring(1);
+            return DAO_Products.Instance.addProduct(name, price, idCategory, quantity);
+        }
+        public bool updateProduct(int id, string name, double price, int idCategory, int quantity = 0)
+        {
+            name = Utils.Utils.NormalizeString(name);
+            if (String.IsNullOrEmpty(name))
+            {
+                throw new Exception("Vui lòng nhập tên Product");
+            }
+            if (price <= 0)
+            {
+                throw new Exception("Vui lòng nhập giá sản phẩm hợp lệ.");
+            }
+            return DAO_Products.Instance.updateProduct(id, name, price, idCategory, quantity);
+        }
+
+        public bool deleteProduct(int id)
+        {
+            if (id <= 0)
+            {
+                throw new Exception("Vui lòng nhập id hợp lệ.");
+            }
+
+            return DAO_Products.Instance.deleteProduct(id);
+        }
     }
 }

@@ -26,7 +26,8 @@ namespace DAO
                 return db.Categories.Select(c => new
                 {
                     c.Id,
-                    c.Name
+                    c.Name,
+                    c.Description,
                 }).ToList();
             }
         }
@@ -35,7 +36,7 @@ namespace DAO
             using( CafeManagementEntities db= new CafeManagementEntities())
             {
                 // Check if the new category name is already used
-                if (db.Categories.Any(c => c.Name == name))
+                if (db.Categories.Any(c => c.Name.ToUpper() == name.ToUpper()))
                 {
                     throw new Exception("The category name is already used");
                 }
@@ -48,7 +49,7 @@ namespace DAO
                 return true;
             }    
         }
-        public bool editCategory(string id, string name, string description)
+        public bool updateCategory(int id, string name, string description)
         {
             using (CafeManagementEntities db= new CafeManagementEntities())
             {
@@ -69,6 +70,13 @@ namespace DAO
         {
             using(CafeManagementEntities db= new CafeManagementEntities())
             {
+
+                // Check if the category exists in the database
+                Category existingCategory = db.Categories.Find(id);
+                if (existingCategory == null)
+                {
+                    throw new Exception("The category does not exist.");
+                }
                 // Check if any product is referencing the category
                 bool isReferenced = db.Products.Any(p => p.IdCategory == id);
 
