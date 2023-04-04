@@ -37,7 +37,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EmployeeName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Role" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Salary" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="Salary" Type="float" Nullable="false" />
           <Property Name="Number" Type="nvarchar" MaxLength="10" />
           <Property Name="IdShift" Type="int" Nullable="false" />
         </EntityType>
@@ -116,7 +116,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Employees__IdShi__412EB0B6">
+        <Association Name="FK__Employees__IdShi__4222D4EF">
           <End Role="Shifts" Type="Self.Shifts" Multiplicity="1" />
           <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
           <ReferentialConstraint>
@@ -128,7 +128,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__OrderDeta__IdOrd__48CFD27E">
+        <Association Name="FK__OrderDeta__IdOrd__49C3F6B7">
           <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
           <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
           <ReferentialConstraint>
@@ -140,7 +140,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__OrderDeta__IdPro__49C3F6B7">
+        <Association Name="FK__OrderDeta__IdPro__4AB81AF0">
           <End Role="Products" Type="Self.Products" Multiplicity="1" />
           <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
           <ReferentialConstraint>
@@ -152,7 +152,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Orders__IdEmploy__44FF419A">
+        <Association Name="FK__Orders__IdEmploy__45F365D3">
           <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -164,7 +164,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Products__IdCate__37A5467C">
+        <Association Name="FK__Products__IdCate__38996AB5">
           <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
           <End Role="Products" Type="Self.Products" Multiplicity="*" />
           <ReferentialConstraint>
@@ -176,7 +176,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ReceiptDe__IdPro__3B75D760">
+        <Association Name="FK__ReceiptDe__IdPro__3C69FB99">
           <End Role="Receipts" Type="Self.Receipts" Multiplicity="1" />
           <End Role="ReceiptDetails" Type="Self.ReceiptDetails" Multiplicity="*" />
           <ReferentialConstraint>
@@ -188,7 +188,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ReceiptDe__IdPro__3C69FB99">
+        <Association Name="FK__ReceiptDe__IdPro__3D5E1FD2">
           <End Role="Products" Type="Self.Products" Multiplicity="1" />
           <End Role="ReceiptDetails" Type="Self.ReceiptDetails" Multiplicity="*" />
           <ReferentialConstraint>
@@ -228,31 +228,31 @@
             <End Role="AccountTypes" EntitySet="AccountTypes" />
             <End Role="Accounts" EntitySet="Accounts" />
           </AssociationSet>
-          <AssociationSet Name="FK__Employees__IdShi__412EB0B6" Association="Self.FK__Employees__IdShi__412EB0B6">
+          <AssociationSet Name="FK__Employees__IdShi__4222D4EF" Association="Self.FK__Employees__IdShi__4222D4EF">
             <End Role="Shifts" EntitySet="Shifts" />
             <End Role="Employees" EntitySet="Employees" />
           </AssociationSet>
-          <AssociationSet Name="FK__OrderDeta__IdOrd__48CFD27E" Association="Self.FK__OrderDeta__IdOrd__48CFD27E">
+          <AssociationSet Name="FK__OrderDeta__IdOrd__49C3F6B7" Association="Self.FK__OrderDeta__IdOrd__49C3F6B7">
             <End Role="Orders" EntitySet="Orders" />
             <End Role="OrderDetails" EntitySet="OrderDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__OrderDeta__IdPro__49C3F6B7" Association="Self.FK__OrderDeta__IdPro__49C3F6B7">
+          <AssociationSet Name="FK__OrderDeta__IdPro__4AB81AF0" Association="Self.FK__OrderDeta__IdPro__4AB81AF0">
             <End Role="Products" EntitySet="Products" />
             <End Role="OrderDetails" EntitySet="OrderDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__Orders__IdEmploy__44FF419A" Association="Self.FK__Orders__IdEmploy__44FF419A">
+          <AssociationSet Name="FK__Orders__IdEmploy__45F365D3" Association="Self.FK__Orders__IdEmploy__45F365D3">
             <End Role="Employees" EntitySet="Employees" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__Products__IdCate__37A5467C" Association="Self.FK__Products__IdCate__37A5467C">
+          <AssociationSet Name="FK__Products__IdCate__38996AB5" Association="Self.FK__Products__IdCate__38996AB5">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
-          <AssociationSet Name="FK__ReceiptDe__IdPro__3B75D760" Association="Self.FK__ReceiptDe__IdPro__3B75D760">
+          <AssociationSet Name="FK__ReceiptDe__IdPro__3C69FB99" Association="Self.FK__ReceiptDe__IdPro__3C69FB99">
             <End Role="Receipts" EntitySet="Receipts" />
             <End Role="ReceiptDetails" EntitySet="ReceiptDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__ReceiptDe__IdPro__3C69FB99" Association="Self.FK__ReceiptDe__IdPro__3C69FB99">
+          <AssociationSet Name="FK__ReceiptDe__IdPro__3D5E1FD2" Association="Self.FK__ReceiptDe__IdPro__3D5E1FD2">
             <End Role="Products" EntitySet="Products" />
             <End Role="ReceiptDetails" EntitySet="ReceiptDetails" />
           </AssociationSet>
@@ -300,7 +300,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Salary" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="Salary" Type="Decimal" Nullable="false" />
           <Property Name="Number" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="IdShift" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Shift" Relationship="Self.FK__Employees__IdShi__4222D4EF" FromRole="Employees" ToRole="Shifts" />

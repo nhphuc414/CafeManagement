@@ -50,8 +50,10 @@
   <ItemGroup>
     <Compile Include="BUS_Acounts.cs" />
     <Compile Include="BUS_Categories.cs" />
+    <Compile Include="BUS_Employees.cs" />
     <Compile Include="BUS_Orders.cs" />
     <Compile Include="BUS_Products.cs" />
+    <Compile Include="BUS_Shifts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

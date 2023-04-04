@@ -76,8 +76,10 @@
     </Compile>
     <Compile Include="DAO_Accounts.cs" />
     <Compile Include="DAO_Categories.cs" />
+    <Compile Include="DAO_Employees.cs" />
     <Compile Include="DAO_Orders.cs" />
     <Compile Include="DAO_Products.cs" />
+    <Compile Include="DAO_Shifts.cs" />
     <Compile Include="Employee.cs">
       <DependentUpon>CafeDatabaseModel.tt</DependentUpon>
     </Compile>
